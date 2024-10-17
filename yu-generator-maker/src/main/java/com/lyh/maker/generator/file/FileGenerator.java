@@ -1,15 +1,16 @@
-package com.lyh.cli.generator;
+package com.lyh.maker.generator.file;
 
-import com.lyh.cli.model.MainTemplateConfig;
+
 import freemarker.template.TemplateException;
 
 import java.io.File;
 import java.io.IOException;
 
+
 /**
  * 核心生成器
  */
-public class MainGenerator {
+public class FileGenerator {
 
     /**
      * 生成
@@ -18,7 +19,7 @@ public class MainGenerator {
      * @throws TemplateException
      * @throws IOException
      */
-    public static void doGenerate(Object model) {
+    public static void doGenerate(Object model) throws TemplateException, IOException {
         String projectPath = System.getProperty("user.dir");
         // 整个项目的根路径
         File parentFile = new File(projectPath).getParentFile();
@@ -26,25 +27,12 @@ public class MainGenerator {
         String inputPath = new File(parentFile, "yu-generator-demo-projects/acm-template").getAbsolutePath();
         String outputPath = projectPath;
         // 生成静态文件
-        StaticGenerator.copyFilesByRecursive(inputPath, outputPath);
+        StaticFileGenerator.copyFilesByRecursive(inputPath, outputPath);
         // 生成动态文件
         String inputDynamicFilePath = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
         String outputDynamicFilePath = outputPath + File.separator + "acm-template/src/com/lyh/acm/MainTemplate.java";
-        try {
-            DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (TemplateException e) {
-            throw new RuntimeException(e);
-        }
+        DynamicFileGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 
-    public static void main(String[] args) throws TemplateException, IOException {
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
-        mainTemplateConfig.setAuthor("yupi");
-        mainTemplateConfig.setLoop(false);
-        mainTemplateConfig.setOutputText("求和结果：");
-        doGenerate(mainTemplateConfig);
-    }
 }
 
