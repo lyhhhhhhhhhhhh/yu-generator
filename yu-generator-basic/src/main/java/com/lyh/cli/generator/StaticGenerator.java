@@ -1,4 +1,4 @@
-package com.lyh.generator;
+package com.lyh.cli.generator;
 
 /**
  *

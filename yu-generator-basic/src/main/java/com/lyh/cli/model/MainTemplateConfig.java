@@ -1,4 +1,4 @@
-package com.lyh.model;
+package com.lyh.cli.model;
 
 import lombok.Data;
 

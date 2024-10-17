@@ -1,4 +1,4 @@
-package com.lyh.generator;
+package com.lyh.cli.generator;
 
 /**
  *
@@ -7,7 +7,7 @@ package com.lyh.generator;
  * @time 2024-10-16-21:41
  **/
 
-import com.lyh.model.MainTemplateConfig;
+import com.lyh.cli.model.MainTemplateConfig;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -22,10 +22,12 @@ import java.io.Writer;
  */
 public class DynamicGenerator {
 
-
     public static void main(String[] args) throws IOException, TemplateException {
+        //这里做一个说明 就是        String projectPath = System.getProperty("user.dir");
+        // 这一行代码的意思是获取当前项目的路径 即打开的IDEA项目的路径
+        //这里打开的是yu-generator 所以就是yu-generator 这个路径
         String projectPath = System.getProperty("user.dir");
-        String inputPath = projectPath + File.separator + "yu-generator-basic" + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
+        String inputPath = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
         String outputPath = projectPath + File.separator + "MainTemplate.java";
         MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
         mainTemplateConfig.setAuthor("lyh");
@@ -33,7 +35,6 @@ public class DynamicGenerator {
         mainTemplateConfig.setOutputText("求和结果：");
         doGenerate(inputPath, outputPath, mainTemplateConfig);
     }
-
 
     /**
      * 生成文件
