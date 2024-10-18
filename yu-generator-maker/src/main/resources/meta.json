@@ -6,8 +6,9 @@
   "author": "liyuhang",
   "createTime": "2023-11-22",
   "fileConfig": {
-    "inputRootPath": "/Users/liyuhang/IdeaProjects/yu-generator/yu-generator-demo-projects/acm-template-pro/",
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
+    "sourceRootPath": "/Users/liyuhang/IdeaProjects/yu-generator/yu-generator-demo-projects/acm-template-pro",
     "type": "dir",
     "files": [
       {
@@ -31,7 +32,7 @@
         "fieldName": "author",
         "type": "String",
         "description": "作者注释",
-        "defaultValue": "yupi",
+        "defaultValue": "liyuhang",
         "abbr": "a"
       },
       {

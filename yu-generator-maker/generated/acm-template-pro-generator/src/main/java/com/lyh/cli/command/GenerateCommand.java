@@ -17,7 +17,7 @@ public class GenerateCommand implements Callable<Integer> {
         private boolean loop = false;
 
         @Option(names = {"-a", "--author"}, arity = "0..1", description = "作者注释", interactive = true, echo = true)
-        private String author = "yupi";
+        private String author = "liyuhang";
 
         @Option(names = {"-o", "--outputText"}, arity = "0..1", description = "输出信息", interactive = true, echo = true)
         private String outputText = "sum = ";

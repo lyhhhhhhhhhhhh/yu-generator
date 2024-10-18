@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 /**
  * ACM输入模版（多数之和）
- * @author liyuhang
  */
 public class MianTemplate {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-            while (scanner.hasNext()){
+
+        while (scanner.hasNext()){
             int n = scanner.nextInt();
 
             int arr[] = new int[n];
@@ -21,8 +21,8 @@ public class MianTemplate {
             for (int num : arr){
                 sum += num;
             }
-            System.out.println("abc:" + sum);
-            }
+            System.out.println("Sum:" + sum);
+        }
         scanner.close();
     }
 }
